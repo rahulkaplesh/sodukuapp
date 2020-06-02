@@ -1,9 +1,15 @@
 import React, { FC, Children } from 'react';
 
+import { GRID } from 'typings';
+import { createFullGrid } from 'utils';
+
 import { Container, Row } from './styles';
 import Block from './block';
 
 const Grid: FC = () => {
+  const grid: GRID = createFullGrid();
+  console.log(grid);
+
   return (
     <Container data-cy="grid-container">
       {Children.toArray(

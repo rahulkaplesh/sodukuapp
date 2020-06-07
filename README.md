@@ -29,7 +29,7 @@ Completed Sudoku Grid will look like this
 
 [![Heroku App Status](http://heroku-shields.herokuapp.com/sudoku-app)](https://sudoku-app.herokuapp.com)
 
-The game can be played by clicking on the link given above .. .
+The game can be played by clicking on the badge given above .. .
 
 ## Setting up the development Environment
 

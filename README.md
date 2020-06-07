@@ -2,46 +2,47 @@
 
 A Sudoku app created using React , Redux , Typescript , styled-components
 
-This is a part of coursework done during the course "React, TypeScript, Redux, StyledComponents: Build Sudoku App" created by
-Barry Michael Doyle
+At the start of the app you will get a homepage like :
+
+![Sudoku Start](/AppScreenshots/StartApp.JPG)
+
+Controls are as follows :
+
+1. Press the key &#8595; to go down from a block
+2. Press the key &#8593; to go up from a block
+3. Press the key &#8594; to go right from a block
+4. Press the key &#8592; to go left
+5. Numbers can be selected using the numpad on your keyboard or by pressing the number on the lower bottom numpad
+   ![Number input](/AppScreenshots/NumberInput.PNG)
+
+Rules are as Follows :
+
+1. Each row can have numbers 1 to 9 occuring only once
+2. Each column can have numbers 1 to 9 occuring only once
+3. Each square can have numbers 1 to 9 occuring only once
+
+Completed Sudoku Grid will look like this
+
+![Finished Grid](/AppScreenshots/FinishedGrid.JPG)
+
+## Hosting status
+
+[![Heroku App Status](http://heroku-shields.herokuapp.com/sudoku-app)](https://sudoku-app.herokuapp.com)
+
+The game can be played by clicking on the link given above .. .
+
+## Setting up the development Environment
+
+For setting up the development environment :
+
+1. Download or clone the repo
+2. Run a command prompt or navigate into the cloned directory
+3. Run `npm install .` in the command prompt
+4. Run `npm start-dev`
+5. Go to [http://localhost:3000](http://localhost:3000) to view the app in the browser
+
+## Link To the Course
+
+This app was developed as a part of the coursework done during the course : "React, TypeScript, Redux, StyledComponents: Build Sudoku App" created by Barry Michael Doy
 
 Link to the course : [react course](https://www.udemy.com/course/react2020/)
-
-Work In Progres once i am done will host it on Heroku and provide the link here ....
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.

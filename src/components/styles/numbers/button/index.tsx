@@ -12,15 +12,20 @@ interface IProps {
 interface IState {
   selectedBlock?: BLOCK_COORD;
   selectedValue?: N;
+  challengeValue?: N;
 }
 
 const NumberButton: FC<IProps> = ({ value }) => {
   const state = useSelector<IReducer, IState>(
-    ({ selectedBlock, workingGrid }) => ({
+    ({ selectedBlock, workingGrid, challengeGrid }) => ({
       selectedBlock,
       selectedValue:
         workingGrid && selectedBlock
           ? workingGrid[selectedBlock[0]][selectedBlock[1]]
+          : 0,
+      challengeValue:
+        challengeGrid && selectedBlock
+          ? challengeGrid[selectedBlock[0]][selectedBlock[1]]
           : 0,
     })
   );
@@ -28,9 +33,9 @@ const NumberButton: FC<IProps> = ({ value }) => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
 
   const fill = useCallback(() => {
-    if (state.selectedBlock && state.selectedValue === 0)
+    if (state.selectedBlock && state.challengeValue === 0)
       dispatch(fillBlock(value, state.selectedBlock));
-  }, [dispatch, state.selectedBlock, state.selectedValue, value]);
+  }, [dispatch, state.selectedBlock, state.challengeValue, value]);
 
   return <Button onClick={fill}>{value}</Button>;
 };

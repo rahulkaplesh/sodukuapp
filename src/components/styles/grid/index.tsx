@@ -12,18 +12,25 @@ import { INDEX, NUMBERS, BLOCK_COORD, N, GRID } from 'typings';
 interface IState {
   selectedBlock?: BLOCK_COORD;
   selectedValue: N;
+  challengeValue: N;
   solvedGrid?: GRID;
+  challengeGrid?: GRID;
 }
 
 const Grid: FC = () => {
   const state = useSelector<IReducer, IState>(
-    ({ selectedBlock, workingGrid, solvedGrid }) => ({
+    ({ selectedBlock, workingGrid, solvedGrid, challengeGrid }) => ({
       selectedBlock,
       selectedValue:
         workingGrid && selectedBlock
           ? workingGrid[selectedBlock[0]][selectedBlock[1]]
           : 0,
+      challengeValue:
+        challengeGrid && selectedBlock
+          ? challengeGrid[selectedBlock[0]][selectedBlock[1]]
+          : 0,
       solvedGrid,
+      challengeGrid,
     })
   );
 
@@ -37,11 +44,12 @@ const Grid: FC = () => {
 
   const fill = useCallback(
     (n: NUMBERS) => {
-      if (state.selectedBlock && state.selectedValue === 0) {
+      if (state.selectedBlock && state.challengeValue === 0) {
+        // && state.selectedValue === 0 This removed to allow user to change the values
         dispatch(fillBlock(n, state.selectedBlock));
       }
     },
-    [dispatch, state.selectedBlock, state.selectedValue]
+    [dispatch, state.selectedBlock, state.challengeValue]
   );
 
   function moveDown() {

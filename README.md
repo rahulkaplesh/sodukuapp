@@ -38,7 +38,7 @@ For setting up the development environment :
 1. Download or clone the repo
 2. Run a command prompt or navigate into the cloned directory
 3. Run `npm install .` in the command prompt
-4. Run `npm start-dev`
+4. Run `npm run-script start-dev`
 5. Go to [http://localhost:3000](http://localhost:3000) to view the app in the browser
 
 ## Link To the Course

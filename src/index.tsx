@@ -4,7 +4,15 @@ import { ThemeProvider } from 'styled-components';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 
-import { Content, Title, Card, Grid, Numbers, NewButton } from './components';
+import {
+  Content,
+  Title,
+  Card,
+  Grid,
+  Numbers,
+  NewButton,
+  HealthBar,
+} from './components';
 import { register, configStore } from './core';
 import { GlobalStyles, theme } from './styles';
 
@@ -20,6 +28,7 @@ ReactDOM.render(
             <Title data-cy="title">Sudoku</Title>
             <Card data-cy="card">
               <NewButton />
+              <HealthBar />
               <Grid />
               <Numbers />
             </Card>

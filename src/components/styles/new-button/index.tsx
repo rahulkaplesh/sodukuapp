@@ -3,14 +3,14 @@ import { useDispatch } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 
 import { Button } from 'components';
-import { createGrid } from 'reducers';
+import { createGame } from 'reducers';
 
 const NewButton: FC = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const createNewGrid = useCallback(() => {
     if (window.confirm('Are you sure you want to start new game ?'))
-      dispatch(createGrid());
+      dispatch(createGame());
   }, [dispatch]);
 
   return <Button onClick={createNewGrid}>New Game</Button>;

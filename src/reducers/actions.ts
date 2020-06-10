@@ -15,3 +15,5 @@ export const fillBlock = (value: NUMBERS, coord: BLOCK_COORD): AnyAction => ({
   coord,
   type: types.FILL_BLOCK,
 });
+
+export const createGame = (): AnyAction => ({ type: types.CREATE_GAME });

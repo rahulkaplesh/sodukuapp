@@ -3,7 +3,7 @@ import useMousetrap from 'react-hook-mousetrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnyAction, Dispatch } from 'redux';
 
-import { createGrid, IReducer, select, fillBlock } from 'reducers';
+import { IReducer, select, fillBlock, createGame } from 'reducers';
 
 import { Container, Row } from './styles';
 import Block from './block';
@@ -36,7 +36,7 @@ const Grid: FC = () => {
 
   const dispatch = useDispatch<Dispatch<AnyAction>>();
 
-  const create = useCallback(() => dispatch(createGrid()), [dispatch]);
+  const create = useCallback(() => dispatch(createGame()), [dispatch]);
 
   useEffect(() => {
     if (!state.solvedGrid) create();

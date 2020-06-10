@@ -5,7 +5,7 @@ interface IProps {
 }
 
 export const HealthButton = styled.div<IProps>`
-  ${({ theme, available = false }) => css`
+  ${({ theme, available }) => css`
     padding: 0;
     display: inline-block;
     height: 20px;

@@ -49,18 +49,24 @@ function reducer(state = initialState, action: AnyAction): IReducer {
         let row: number = action.coord[0];
         let col: number = action.coord[1];
         let grid: GRID = state.workingGrid;
+        let livesLeft: number = state.livesLeft ? state.livesLeft : 0;
+        console.log(livesLeft);
         if (isInRow({ grid, row, value })) {
-          alert('Check the rows!!');
-          return state;
+          alert('Made a Mistake Check the Rows !! Reducing a life !!');
+          livesLeft = livesLeft !== 0 ? livesLeft - 1 : 0;
+          console.log(livesLeft);
+          return { ...state, livesLeft };
         }
         if (isInCol({ grid, col, value })) {
-          alert('Check the Columns!!');
-          return state;
+          alert('Made a Mistake Check the Columns!! Reducing a life !!');
+          livesLeft = livesLeft !== 0 ? livesLeft - 1 : 0;
+          return { ...state, livesLeft };
         }
         const square = identifySquare({ col, grid, row });
         if (isInSquare({ square, value })) {
-          alert('Check the Square!!');
-          return state;
+          alert('Made a Mistake Check the Square!! Reducing a life !!');
+          livesLeft = livesLeft !== 0 ? livesLeft - 1 : 0;
+          return { ...state, livesLeft };
         }
         state.workingGrid[action.coord[0]][action.coord[1]] = action.value;
         if (compareArrays(state.workingGrid, state.solvedGrid))
@@ -68,6 +74,24 @@ function reducer(state = initialState, action: AnyAction): IReducer {
         return { ...state, workingGrid: [...state.workingGrid] as GRID };
       }
       return state;
+    }
+    case types.CREATE_GAME: {
+      const level = 1;
+      const lives = 3;
+      const livesLeft = 3;
+      const solvedGrid = createFullGrid();
+      const gridCopy = copyGrid(solvedGrid);
+      const challengeGrid = removeNumbers(gridCopy, level);
+      const workingGrid = copyGrid(challengeGrid);
+      return {
+        ...state,
+        challengeGrid,
+        solvedGrid,
+        workingGrid,
+        level,
+        lives,
+        livesLeft,
+      };
     }
     default:
       return state;

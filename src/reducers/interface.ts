@@ -5,4 +5,7 @@ export interface IReducer {
   solvedGrid?: GRID;
   workingGrid?: GRID;
   selectedBlock?: BLOCK_COORD;
+  level?: number;
+  lives?: number;
+  livesLeft?: number;
 }

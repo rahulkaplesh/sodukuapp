@@ -4,6 +4,7 @@ export * from './card';
 export * from './button';
 
 // Just check components being built
+export { default as StatusBar } from './status-bar';
 export { default as HealthBar } from './health-bar';
 
 export { default as Grid } from './grid';

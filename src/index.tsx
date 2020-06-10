@@ -11,7 +11,7 @@ import {
   Grid,
   Numbers,
   NewButton,
-  HealthBar,
+  StatusBar,
 } from './components';
 import { register, configStore } from './core';
 import { GlobalStyles, theme } from './styles';
@@ -28,7 +28,7 @@ ReactDOM.render(
             <Title data-cy="title">Sudoku</Title>
             <Card data-cy="card">
               <NewButton />
-              <HealthBar />
+              <StatusBar />
               <Grid />
               <Numbers />
             </Card>

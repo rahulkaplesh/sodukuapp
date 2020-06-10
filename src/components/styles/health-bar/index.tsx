@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { HealthButton } from './health-button';
 
-import { Container } from './styles';
+import { Label } from './styles';
 
 const HealthBar: FC = () => {
   const numberOfBars: number = 3;
@@ -9,7 +9,12 @@ const HealthBar: FC = () => {
   for (let i: number = 0; i < numberOfBars; i++) {
     componentsToDisplay.push(<HealthButton />);
   }
-  return <Container>{componentsToDisplay}</Container>;
+  return (
+    <>
+      <Label>LIFE</Label>
+      {componentsToDisplay}
+    </>
+  );
 };
 
 export default HealthBar;

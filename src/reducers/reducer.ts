@@ -23,13 +23,15 @@ function reducer(state = initialState, action: AnyAction): IReducer {
     case types.CREATE_GRID:
       const solvedGrid = createFullGrid();
       const gridCopy = copyGrid(solvedGrid);
-      const challengeGrid = removeNumbers(gridCopy);
+      const challengeGrid = removeNumbers(gridCopy, state.level);
       const workingGrid = copyGrid(challengeGrid);
+      const livesLeft = state.lives;
       return {
         ...state,
         challengeGrid,
         solvedGrid,
         workingGrid,
+        livesLeft,
       };
     case types.SELECT_BLOCK:
       return {
@@ -50,11 +52,9 @@ function reducer(state = initialState, action: AnyAction): IReducer {
         let col: number = action.coord[1];
         let grid: GRID = state.workingGrid;
         let livesLeft: number = state.livesLeft ? state.livesLeft : 0;
-        console.log(livesLeft);
         if (isInRow({ grid, row, value })) {
           alert('Made a Mistake Check the Rows !! Reducing a life !!');
           livesLeft = livesLeft !== 0 ? livesLeft - 1 : 0;
-          console.log(livesLeft);
           return { ...state, livesLeft };
         }
         if (isInCol({ grid, col, value })) {
@@ -69,8 +69,30 @@ function reducer(state = initialState, action: AnyAction): IReducer {
           return { ...state, livesLeft };
         }
         state.workingGrid[action.coord[0]][action.coord[1]] = action.value;
-        if (compareArrays(state.workingGrid, state.solvedGrid))
-          alert('YAY !! You have completed correctly');
+        if (compareArrays(state.workingGrid, state.solvedGrid)) {
+          const solvedGrid = createFullGrid();
+          const gridCopy = copyGrid(solvedGrid);
+          let level = state.level ? state.level : 1;
+          if (state.livesLeft !== 0) {
+            alert('You Advance to the next level!');
+            level = state.level ? state.level + 1 : 1;
+          } else {
+            alert(
+              'Sorry you did not complete the level in the given lives you cannot advance!'
+            );
+          }
+          const challengeGrid = removeNumbers(gridCopy, level);
+          const workingGrid = copyGrid(challengeGrid);
+          const livesLeft = state.lives;
+          return {
+            ...state,
+            challengeGrid,
+            solvedGrid,
+            workingGrid,
+            livesLeft,
+            level,
+          };
+        }
         return { ...state, workingGrid: [...state.workingGrid] as GRID };
       }
       return state;

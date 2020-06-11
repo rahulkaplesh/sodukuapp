@@ -3,17 +3,23 @@ import { useDispatch } from 'react-redux';
 import { Action, Dispatch } from 'redux';
 
 import { Button } from 'components';
-import { createGame } from 'reducers';
+import { createGrid } from 'reducers';
+
+// TODO : To build a reducer for Resetting level to 1 !!
 
 const NewButton: FC = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const createNewGrid = useCallback(() => {
-    if (window.confirm('Are you sure you want to start new game ?'))
-      dispatch(createGame());
+    if (
+      window.confirm(
+        'Are you sure you want to reset the game at the current Level ?'
+      )
+    )
+      dispatch(createGrid());
   }, [dispatch]);
 
-  return <Button onClick={createNewGrid}>New Game</Button>;
+  return <Button onClick={createNewGrid}>RESET LEVEL</Button>;
 };
 
 export default NewButton;

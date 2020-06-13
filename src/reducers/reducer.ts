@@ -22,17 +22,21 @@ const initialState: IReducer = {};
 function reducer(state = initialState, action: AnyAction): IReducer {
   switch (action.type) {
     case types.CREATE_GRID:
+      const lives = 3;
+      const livesLeft = 3;
+      const level = state.level ? state.level : 0;
       const solvedGrid = createFullGrid();
       const gridCopy = copyGrid(solvedGrid);
-      const challengeGrid = removeNumbers(gridCopy, state.level);
+      const challengeGrid = removeNumbers(gridCopy, level);
       const workingGrid = copyGrid(challengeGrid);
-      const livesLeft = state.lives;
       return {
         ...state,
         challengeGrid,
         solvedGrid,
         workingGrid,
         livesLeft,
+        level,
+        lives,
       };
     case types.SELECT_BLOCK:
       return {

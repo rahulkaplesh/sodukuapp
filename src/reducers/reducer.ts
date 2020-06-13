@@ -24,7 +24,7 @@ function reducer(state = initialState, action: AnyAction): IReducer {
     case types.CREATE_GRID:
       const lives = 3;
       const livesLeft = 3;
-      const level = state.level ? state.level : 1;
+      const level = state.level === 0 ? 1 : state.level;
       const solvedGrid = createFullGrid();
       const gridCopy = copyGrid(solvedGrid);
       const challengeGrid = removeNumbers(gridCopy, level);

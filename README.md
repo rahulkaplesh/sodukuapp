@@ -46,3 +46,5 @@ For setting up the development environment :
 This app was developed as a part of the coursework done during the course : "React, TypeScript, Redux, StyledComponents: Build Sudoku App" created by Barry Michael Doy
 
 Link to the course : [react course](https://www.udemy.com/course/react2020/)
+
+Though the start of the app was out of the course i am kind of hooked onto it and am adding features to make the gameplay interesting :smile:

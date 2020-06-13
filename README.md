@@ -20,6 +20,8 @@ Rules are as Follows :
 1. Each row can have numbers 1 to 9 occuring only once
 2. Each column can have numbers 1 to 9 occuring only once
 3. Each square can have numbers 1 to 9 occuring only once
+4. User gets 3 lives to solve each level of sudoku , If he solves it in 3 lives he gets to go to the next level
+5. 10 levels of gameplay are present which are traversed one by one
 
 Completed Sudoku Grid will look like this
 

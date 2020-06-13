@@ -5,8 +5,6 @@ import { Action, Dispatch } from 'redux';
 import { Button } from 'components';
 import { createGrid } from 'reducers';
 
-// TODO : To build a reducer for Resetting level to 1 !!
-
 const NewButton: FC = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 

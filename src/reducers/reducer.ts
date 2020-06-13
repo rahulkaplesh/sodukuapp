@@ -1,4 +1,5 @@
 import { AnyAction } from 'redux';
+import global from 'global';
 
 import { IReducer } from './interface';
 import {
@@ -76,9 +77,13 @@ function reducer(state = initialState, action: AnyAction): IReducer {
           if (state.livesLeft !== 0) {
             alert('You Advance to the next level!');
             level = state.level ? state.level + 1 : 1;
-          } else {
+          } else if (state.livesLeft === 0) {
             alert(
               'Sorry you did not complete the level in the given lives you cannot advance!'
+            );
+          } else if (state.level === global.maxLevel) {
+            alert(
+              'Yay ! You have finished the game resetting progress to Level 1!!'
             );
           }
           const challengeGrid = removeNumbers(gridCopy, level);
